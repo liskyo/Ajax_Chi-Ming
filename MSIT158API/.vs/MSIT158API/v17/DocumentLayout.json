@@ -1,0 +1,40 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\Ajax\\1130525Ajax\\MSIT158API\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{8930B5FD-F91D-4C4C-A486-CD7B3DDAE37E}|..\\MSIT158Site-1-master\\MSIT158Site.csproj|d:\\ajax\\1130525ajax\\msit158site-1-master\\views\\home\\spots.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:1:0:{e8b06f53-6d01-11d2-aa7d-00c04f990343}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Spots.cshtml",
+              "DocumentMoniker": "D:\\Ajax\\1130525Ajax\\MSIT158Site-1-master\\Views\\Home\\Spots.cshtml",
+              "RelativeDocumentMoniker": "..\\MSIT158Site-1-master\\Views\\Home\\Spots.cshtml",
+              "ToolTip": "D:\\Ajax\\1130525Ajax\\MSIT158Site-1-master\\Views\\Home\\Spots.cshtml",
+              "RelativeToolTip": "..\\MSIT158Site-1-master\\Views\\Home\\Spots.cshtml",
+              "ViewState": "AQIAAHoAAAAAAAAAAAAAwIkAAAA1AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-05-26T06:56:31.477Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

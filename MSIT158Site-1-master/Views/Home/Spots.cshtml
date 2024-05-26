@@ -1,0 +1,174 @@
+﻿﻿
+@{
+    ViewData["Title"] = "Spots";
+}
+
+<h1>台北市景點</h1>
+<div class="row mb-3">
+    <div class="col-2">
+        @*設定分頁大小*@
+        <select id="selectpageSize" style="height:70%">
+        </select>
+    </div>
+    <div class="col-6">
+        <nav>
+            <ul class="pagination" id="ul1">
+            </ul>
+        </nav>
+    </div>
+    <div class="col-2">
+        @*設定升降冪*@
+        <select id="selectSpotId" style="height:70%">
+        </select>
+    </div>
+    <div class="col-2">
+        @*placeholder 設定背景文字*@
+        <input type="search" placeholder="搜尋景點資料" class="form-control" id="inputSearch" />
+    </div>
+</div>
+
+<div class="row mb-3">
+    <div class="col-12">
+        <nav>
+            <ul class="pagination pagination-lg" id="ulCategories"></ul>
+        </nav>
+    </div>
+</div>
+
+<div class="row row-cols-1 row-cols-md-3 g-4 mb-0" id="div1"></div>
+
+
+
+
+
+@section Styles{
+    <style>
+
+    </style>
+}
+@section Scripts{
+    <script>
+        const divSpots = document.querySelector('#div1');
+        const ulPaging = document.querySelector('#ul1');
+        const inpSearch = document.querySelector('#inputSearch');
+        const selpageSize = document.querySelector('#selectpageSize');
+        const selSpotId = document.querySelector('#selectSpotId');
+        const ulCategories = document.querySelector('#ulCategories');
+
+        const searchData = {  //載入時 設定
+            "categoryId": 0,
+            "keyword": "北投",
+            "page": 1,
+            "pageSize": 18,
+            "sortBy": "SpotId",
+            "sortType": "asc"
+        };
+        // 分頁處理函數
+        const pagingHandler = page => {
+            searchData.page = page;
+            loadSpots();
+        }
+        //分類處理函數
+        const categoryHandler = pageid => {
+            searchData.categoryId = pageid;
+            searchData.page = 1;
+            loadSpots();
+        }
+
+
+        const loadSpots = async () => {    
+            const url = 'https://localhost:7045/api/Spots';
+            const response = await fetch(url, {
+                method: 'POST',
+                body: JSON.stringify(searchData),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            });
+            const data = await response.json();
+            console.log(data);
+
+            //顯示景點資料
+            const spots = data.spotsResult.map(spot => {
+                const { spotId, spotTitle, spotDescription, address, spotImage } = spot;
+                return (`
+                                <div class="col">
+                                      <div class="card">
+                                          <img src="${spotImage}" class="card-img-top" alt="${spotTitle}">
+                                               <div class="card-body">
+                                                   <h5 class="card-title">${spotId} ${spotTitle}</h5>
+                                                   <p class="card-text">${spotDescription.length <= 100 ? spotDescription : spotDescription.substring(0, 100)}</p>
+                                               </div>
+                                               <div class="card-footer">
+                                                   <small class="text-body-secondary">${address}</small>
+                                               </div>
+                                      </div>
+                                </div>`)
+            });
+            divSpots.innerHTML = spots.join("");
+
+            //顯示分頁按鈕
+            let liPages = "";
+            for (let i = 1, max = data.totalPages; i <= max; i++) {
+                liPages += `<li class="page-item" onclick="pagingHandler(${i})"><a class="page-link">${i}</a></li>`
+            }
+            ulPaging.innerHTML = liPages;
+
+            //添加分頁大小選項
+            const pageSizeOptions = [6, 9, 12, 15, 18].map(pageSize => `
+                            <option value="${pageSize}">每頁顯示${pageSize}筆資料</option>`);
+            selpageSize.innerHTML = pageSizeOptions.join('');
+            // 設置當前分頁大小
+            selpageSize.value = searchData.pageSize;
+
+            //// 添加排序選項
+            const sortOptions = [
+                `<option value="SpotId-asc">景點編號升冪</option>`,
+                `<option value="SpotId-desc">景點編號降冪</option>`
+            ];
+            selSpotId.innerHTML = sortOptions.join('');
+
+            // 設置當前排序選項
+            selSpotId.value = `${searchData.sortBy}-${searchData.sortType}`;
+
+            // 顯示景點類別
+            urll = 'https://localhost:7045/api/Categories';
+            const response1 = await fetch(urll);
+            const datas = await response1.json();
+            const categorys = datas.map(category => {
+                const { categoryName, categoryId } = category
+                return (
+                    `
+                     <li class="page-item" onclick="categoryHandler(${categoryId})"><a class="page-link">${categoryName}</a></li>
+                            `
+                )
+            })
+            ulCategories.innerHTML = categorys.join("");
+
+        }
+
+
+        loadSpots();
+
+
+        inpSearch.addEventListener('keydown', event => {
+            if (event.keyCode === 13) {
+                searchData.keyword = event.target.value;
+                loadSpots();
+            }
+        })
+
+        selpageSize.addEventListener('change', event => {
+            searchData.pageSize = parseInt(event.target.value);
+            loadSpots();
+        });
+
+        selSpotId.addEventListener('change', event => {
+            const [sortBy, sortType] = event.target.value.split('-');
+            searchData.sortBy = sortBy;
+            searchData.sortType = sortType;
+            loadSpots();
+        });
+
+    </script>
+}

@@ -1,0 +1,99 @@
+is_global = true
+build_property.TargetFramework = net7.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = MSIT158Site
+build_property.RootNamespace = MSIT158Site
+build_property.ProjectDir = D:\Ajax\1130525Ajax\MSIT158Site-1-master\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.RazorLangVersion = 7.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = D:\Ajax\1130525Ajax\MSIT158Site-1-master
+build_property._RazorSourceGeneratorDebug = 
+
+[D:/Ajax/1130525Ajax/MSIT158Site-1-master/Views/Address/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRkcmVzc1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Ajax/1130525Ajax/MSIT158Site-1-master/Views/Api/Address.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXBpXEFkZHJlc3MuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Ajax/1130525Ajax/MSIT158Site-1-master/Views/Homework/Homework1.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZXdvcmtcSG9tZXdvcmsxLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Ajax/1130525Ajax/MSIT158Site-1-master/Views/Home/Address.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxBZGRyZXNzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Ajax/1130525Ajax/MSIT158Site-1-master/Views/Home/CallApi.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxDYWxsQXBpLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Ajax/1130525Ajax/MSIT158Site-1-master/Views/Home/CheckAccount.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxDaGVja0FjY291bnQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Ajax/1130525Ajax/MSIT158Site-1-master/Views/Home/First.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxGaXJzdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Ajax/1130525Ajax/MSIT158Site-1-master/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Ajax/1130525Ajax/MSIT158Site-1-master/Views/Home/JSONTest.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxKU09OVGVzdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Ajax/1130525Ajax/MSIT158Site-1-master/Views/Home/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Ajax/1130525Ajax/MSIT158Site-1-master/Views/Home/Register.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxSZWdpc3Rlci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Ajax/1130525Ajax/MSIT158Site-1-master/Views/Home/Spots.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxTcG90cy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Ajax/1130525Ajax/MSIT158Site-1-master/Views/Products/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdHNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Ajax/1130525Ajax/MSIT158Site-1-master/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Ajax/1130525Ajax/MSIT158Site-1-master/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Ajax/1130525Ajax/MSIT158Site-1-master/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Ajax/1130525Ajax/MSIT158Site-1-master/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Ajax/1130525Ajax/MSIT158Site-1-master/Views/Home/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxfTGF5b3V0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = b-foqmrqlo94
+
+[D:/Ajax/1130525Ajax/MSIT158Site-1-master/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-5buo2xnm6l
+
+[D:/Ajax/1130525Ajax/MSIT158Site-1-master/Views/Shared/_ProductsLayout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Qcm9kdWN0c0xheW91dC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = b-1zxm87ybm6

@@ -1,0 +1,93 @@
+﻿
+@{
+    ViewData["Title"] = "First";
+}
+
+<h1>First Ajax Demo</h1>
+
+
+<button id="buttonStart" class="btn btn-primary">Ajax 開始</button>
+<button id="buttonStop" class="btn btn-danger">Ajax 停止</button>
+<div id="div1"></div>
+<img src="~/images/Spinner-5.gif" id="imgLoading" style="display:none" />
+
+@section Styles{
+    <style>
+
+    </style>
+}
+
+
+@section Scripts{
+    <script>
+        const btn = document.querySelector('#buttonStart');
+        const btnstop = document.querySelector('#buttonStop');
+        const myDiv = document.querySelector('#div1');
+        const imgLoading = document.querySelector('#imgLoading')
+        let abortController;
+
+        btnstop.addEventListener('click',()=>{
+            if (abortController){
+                abortController.abort();
+            }
+        })
+
+
+        btn.addEventListener('click',async()=>{
+            //Ajax程式
+
+            //async / await
+            try {
+                imgLoading.style.display = "inline" //顯示執行中的圖片
+                btn.setAttribute('disable', 'disable') //讓按鈕不可以按
+
+                //取消ajax程式的執行
+                abortController = new AbortController();
+                const signal = abortController.signal;
+
+                setTimeout(()=>{
+                    abortController.abort();
+                },5000);
+
+                const response = await fetch('@Url.Content("~/api/index")', { signal }); //獲取並輸出 response（回應對象）
+                const data = await response.text();  //將 response 轉換成文本（text）形式
+                if (!response.ok) {
+                    throw new Error(`錯誤代碼:${response.status}`)
+                }
+                myDiv.innerHTML = `<h2>${data}</h2>`;
+            } catch (error) {
+                myDiv.innerHTML = `<h2>${error.message}</h2>`;
+
+            } finally {
+                imgLoading.style.display = "none"; //隱藏執行中的圖片
+                btn.removeAttribute('disable'); //讓按鈕可以按
+            }
+
+
+
+
+
+            // then
+            //console.log(fetch('@Url.Content("~/api/index")')); // 使用~/找到專案的根目錄
+            //fetch('@Url.Content("~/api/index")')
+            //    .then(response => {  //在第一個 .then 方法中，獲取並輸出 response（回應對象），然後將 response 轉換成文本（text）形式。
+            //        //console.log(response);
+            //        return response.text();
+            //    })
+            //    .then(data => {  //在第二個 .then 方法中，將獲取到的數據（data）用模板字面量的形式插入到 myDiv 的內部，顯示在頁面上。
+            //        myDiv.innerHTML = `<h2>${data}</h2>`;
+            //    })
+
+            //fetch('@Url.Content("~/api/index")')
+            //    .then(response => {  //在第一個 .then 方法中，獲取並輸出 response（回應對象），然後將 response 轉換成文本（text）形式。
+            //        response.headers.forEach((value,name)=>{
+            //            console.log(`${name}:${value}`);
+            //        })
+            //    })
+
+        })
+
+
+
+    </script>
+}

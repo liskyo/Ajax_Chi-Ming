@@ -1,0 +1,117 @@
+﻿﻿
+@{
+    ViewData["Title"] = "Register";
+}
+
+
+<div class="row">
+    <div class="col-3"></div>
+    <div class="col-6">
+        <h1>Register</h1>
+        <form method="post" action="~/api/register" id="userForm">   @*記得加id*@
+            
+            <div class="mb-3">
+                <label for="InputName" class="form-label">姓名</label>  @*點for會進入id*@
+                <input type="text" class="form-control" id="InputName" name="Name">
+            </div>
+            <div class="mb-3">
+                @*mb-3=margin-bottom-3單位*@
+                <label for="InputEmail" class="form-label">電子郵件</label>
+                <input type="email" class="form-control" id="InputEmail" name="email">
+            </div>
+            <div class="mb-3">
+                @*mb-3=margin-bottom-3單位*@
+                <label for="InputPassword" class="form-label">密碼</label>
+                <input type="password" class="form-control" id="InputPassword" name="Password">
+            </div>
+            <div class="mb-3">
+                @*mb-3=margin-bottom-3單位*@
+                <label for="InputCKPassword" class="form-label">密碼確認</label>
+                <input type="password" class="form-control" id="InputCKPassword" name="CKPassword">
+            </div>
+            <div class="mb-3">
+                <label for="InputAge" class="form-label">年紀</label>    @*type="number"會有上下箭頭*@
+                <input type="number" class="form-control" id="InputAge" name="age">
+            </div>
+            <div class="mb-3">
+                <label for="formFile" class="form-label">圖像</label>
+                <input class="form-control" type="file" id="formFile" name="avatar">
+            </div>
+
+            <button type="submit" class="btn btn-primary" id="buttonSubmit">送出</button>
+        </form>
+        <div id="div1" class="alert alert-info mt-3"></div>
+    </div>
+    <div class="col-3"></div>
+</div>
+
+@section Styles{
+    <style>
+
+
+    </style>
+}
+@section Scripts{
+    <script>
+        const divResult = document.querySelector('#div1');
+        const btnSubmit = document.querySelector('#buttonSubmit');
+        const inpName = document.querySelector('#InputName');
+        const inpEmail = document.querySelector('#InputEmail');
+        const inpPassword = document.querySelector('#InputPassword');
+        const inpCKPassword = document.querySelector('#InputCKPassword');
+        const inpAge = document.querySelector('#InputAge');
+
+
+        btnSubmit.addEventListener('click', async (evt) => {
+            evt.preventDefault(); //防止預設行為的發生
+
+
+            // 檢查密碼和確認密碼是否匹配
+            if (inpPassword.value !== inpCKPassword.value) {
+                divResult.textContent = "密碼和確認密碼不匹配";
+                divResult.classList.remove('alert-info');
+                divResult.classList.add('alert-danger'); //並更換表單背景
+                return; // 阻止表單提交
+            }
+
+
+            //將資料放進FormData
+            const myForm = document.querySelector('#userForm');
+            const formData = new FormData(myForm);
+
+            //formData.append("password", "12345678");
+            //讀出formData中的資料
+            //for(const pair of formData.entries()){
+            //    console.log(`${pair[0]}:${pair[1]}`);
+            //}
+
+            //方法1
+            const url = '@Url.Content("~/api/register/")';
+            const response = await fetch(url, {
+                method: 'POST',
+                body: formData
+            });
+
+            const data = await response.text();
+            divResult.textContent = data;
+
+            //密碼確認方法
+            divResult.classList.remove('alert-danger');
+            divResult.classList.add('alert-info');
+
+            //方法2
+            //const url = `@Url.Content("~/api/register/")?email=${inpEmail.value}&age=${inpAge.value}&Name=${inpName.value}`;
+            //const response =  await fetch(url);
+            //const data = await response.text();
+            //divResult.textContent = data;
+
+        })
+
+              //(async ()=>{
+              //      const url = '@Url.Content("~/api/register")?id=1&age=29&name=Mary';
+              //      const response = await fetch(url);
+              //      const data = await response.text();
+              //      divResult.innerHTML = data;
+              //})();
+    </script>
+}

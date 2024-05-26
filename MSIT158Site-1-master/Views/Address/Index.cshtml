@@ -1,0 +1,71 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<select id="selectCity"></select>
+<select id="selectSite" disabled></select>
+<select id="selectRoad" disabled></select>
+
+@section Scripts {
+    <script>
+        const selCity = document.querySelector('#selectCity');
+        const selSite = document.querySelector('#selectSite');
+        const selRoad = document.querySelector('#selectRoad');
+
+        // 獲取城市列表
+        (async () => {
+            const response = await fetch('@Url.Action("GetCities", "Address")');
+            const cities = await response.json();
+            const options = cities.map(city => `<option value="${city}">${city}</option>`);
+            selCity.innerHTML = '<option value="">請選擇縣市</option>' + options.join('');
+        })();
+
+        // 處理縣市變更事件
+        selCity.addEventListener('change', async (e) => {
+            const city = e.target.value;
+            if (!city) {
+                selSite.innerHTML = '';
+                selRoad.innerHTML = '';
+                selSite.disabled = true;
+                selRoad.disabled = true;
+                return;
+            }
+
+            const response = await fetch(`@Url.Action("GetSites", "Address")?city=${city}`);
+            const sites = await response.json();
+            const options = sites.map(site => `<option value="${site}">${site}</option>`);
+            selSite.innerHTML = '<option value="">請選擇場地 ID</option>' + options.join('');
+            selSite.disabled = false;
+            selRoad.innerHTML = '';
+            selRoad.disabled = true;
+        });
+
+        // 處理場地 ID 變更事件
+        selSite.addEventListener('change', async (e) => {
+            const siteId = e.target.value;
+            const city = selCity.value;
+            if (!siteId) {
+                selRoad.innerHTML = '';
+                selRoad.disabled = true;
+                return;
+            }
+
+            const response = await fetch(`@Url.Action("GetRoads", "Address")?city=${city}&siteId=${siteId}`);
+            const roads = await response.json();
+            const options = roads.map(road => `<option value="${road}">${road}</option>`);
+            selRoad.innerHTML = '<option value="">請選擇路名</option>' + options.join('');
+            selRoad.disabled = false;
+        });
+    </script>
+}
+
+@section Styles {
+    <style>
+
+    </style>
+}
+
+

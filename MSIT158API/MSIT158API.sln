@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33502.453
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MSIT158API", "MSIT158API\MSIT158API.csproj", "{94EF5ED1-D585-4E32-A220-D4FC042554F3}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MSIT158Site", "..\MSIT158Site-1-master\MSIT158Site.csproj", "{8930B5FD-F91D-4C4C-A486-CD7B3DDAE37E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{94EF5ED1-D585-4E32-A220-D4FC042554F3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{94EF5ED1-D585-4E32-A220-D4FC042554F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{94EF5ED1-D585-4E32-A220-D4FC042554F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{94EF5ED1-D585-4E32-A220-D4FC042554F3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8930B5FD-F91D-4C4C-A486-CD7B3DDAE37E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8930B5FD-F91D-4C4C-A486-CD7B3DDAE37E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8930B5FD-F91D-4C4C-A486-CD7B3DDAE37E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8930B5FD-F91D-4C4C-A486-CD7B3DDAE37E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FF3A0F7F-23A6-4CEE-B859-3BED76CF0208}
+	EndGlobalSection
+EndGlobal
